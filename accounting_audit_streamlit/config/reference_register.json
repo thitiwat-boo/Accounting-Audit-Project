@@ -1,0 +1,22 @@
+[
+  {
+    "source": "TFAC TFRS standards",
+    "url": "https://acpro-std.tfac.or.th/standard/1/",
+    "status": "Verify current edition before use"
+  },
+  {
+    "source": "TFAC TFRS for NPAEs",
+    "url": "https://acpro-std.tfac.or.th/uploads/files/TFRS%20for%20NPAEs.pdf",
+    "status": "Verify current edition before use"
+  },
+  {
+    "source": "DBD financial statements",
+    "url": "https://www.dbd.go.th/download-form/10",
+    "status": "Verify current DBD abbreviated statement list"
+  },
+  {
+    "source": "User sample PDF",
+    "description": "TRC Construction PCL FY2025 financial statements; reference layout only",
+    "status": "Not used as accounting data"
+  }
+]

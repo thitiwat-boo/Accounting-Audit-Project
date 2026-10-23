@@ -1,0 +1,17 @@
+rules:
+  - id: high_value_journal
+    description: ยอดรายการสูงกว่า threshold ที่กำหนด
+    assertion: Accuracy
+    initial_score: 20
+  - id: period_end_cutoff
+    description: รายการในช่วง 3 วันก่อนวันสิ้นงวด
+    assertion: Cut-off
+    initial_score: 25
+  - id: manual_journal_keyword
+    description: คำอธิบายสื่อถึง manual journal หรือ adjustment
+    assertion: Accuracy
+    initial_score: 20
+  - id: missing_document
+    description: ไม่มีเลขที่เอกสาร
+    assertion: Completeness
+    initial_score: 15
