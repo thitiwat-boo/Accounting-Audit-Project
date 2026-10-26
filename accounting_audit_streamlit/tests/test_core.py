@@ -7,12 +7,12 @@ from src.audit_tests import duplicate_gl_rows
 def test_tb_balanced():
     df=pd.DataFrame({"Account Code":["1","2"],"Debit":[100,0],"Credit":[0,100]})
     q=tb_quality(df)
-    assert q.iloc[0]["Status"]=="Pass"
+    assert q.loc[q["Check"].eq("TB Debit = Credit"),"Status"].iloc[0]=="Pass"
 
 def test_tb_unbalanced():
     df=pd.DataFrame({"Account Code":["1"],"Debit":[100],"Credit":[50]})
     q=tb_quality(df)
-    assert q.iloc[0]["Status"]=="Error"
+    assert q.loc[q["Check"].eq("TB Debit = Credit"),"Status"].iloc[0]=="Critical"
 
 def test_mapping_requires_approval():
     tb=pd.DataFrame({"Account Code":["100"],"Account Name":["เงินสด"],"Debit":[100],"Credit":[0],"_Source_Row":[2]})

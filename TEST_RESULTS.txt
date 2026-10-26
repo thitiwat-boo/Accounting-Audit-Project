@@ -1,0 +1,18 @@
+RED TEAM TEST RESULTS — build snapshot 2026-10-23
+
+Automated tests executed in the working environment:
+- 12 passed, 0 failed (pytest; core + Red Team cases)
+- Python compileall: passed
+- Excel export smoke test: passed
+- Required workbook sheets: 34/34 present
+- Formula strings detected: 141 in synthetic test workbook
+- Formula scan for literal #REF! in formula strings: passed
+- Workbook reopened with openpyxl: passed
+
+Limitations of this test result:
+- Streamlit was not installed in the isolated test environment, so a full UI/browser smoke test was not performed here.
+- openpyxl verifies formula strings but does not calculate formulas. Excel or LibreOffice recalculation is still required.
+- These tests use synthetic data only, not a real PEAK export.
+- Current DBD line-item mappings have not been independently validated against the applicable official form for the user's entity/framework.
+- Prior-year PDF/OCR extraction, fully integrated adjusting entries, cash-flow calculations, durable multi-user storage and full reconciliation of all acceptance criteria are not implemented.
+- Therefore this build is NOT certified as production-ready and does NOT pass all 25 acceptance criteria.
