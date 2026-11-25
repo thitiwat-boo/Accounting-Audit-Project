@@ -4,13 +4,13 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from thai_accounting_audit_pack.src.accounting_rules import compute_adjusted_tb, generate_proposed_adjustments
-from thai_accounting_audit_pack.src.config_loader import SAMPLE_DIR, get_reference_register
-from thai_accounting_audit_pack.src.loaders import auto_detect_columns, GL_COLUMN_SYNONYMS, normalize_gl, normalize_tb, TB_COLUMN_SYNONYMS
-from thai_accounting_audit_pack.src.mapping import build_initial_coa_mapping
-from thai_accounting_audit_pack.src.models import t
-from thai_accounting_audit_pack.src.ui_helpers import init_session_state, log_change, render_page_review_signoff, render_sidebar_and_header, save_setup
-from thai_accounting_audit_pack.src.validators import run_data_quality_checks
+from src.accounting_rules import compute_adjusted_tb, generate_proposed_adjustments
+from src.config_loader import SAMPLE_DIR, get_reference_register
+from src.loaders import auto_detect_columns, GL_COLUMN_SYNONYMS, normalize_gl, normalize_tb, TB_COLUMN_SYNONYMS
+from src.mapping import build_initial_coa_mapping
+from src.models import t
+from src.ui_helpers import init_session_state, log_change, render_page_review_signoff, render_sidebar_and_header, save_setup
+from src.validators import run_data_quality_checks
 
 
 st.set_page_config(
