@@ -1,0 +1,554 @@
+version: "1.0.0"
+description: "5-level Grouping and Sub-grouping Master Hierarchy for Thai Financial Statements & DBD Presentation"
+
+hierarchy:
+  - account_type: "Asset"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "สินทรัพย์หมุนเวียน"
+    sub_grouping: "เงินสดและรายการเทียบเท่าเงินสด"
+    fs_line_item: "เงินสดและรายการเทียบเท่าเงินสด"
+    fs_line_item_en: "Cash and cash equivalents"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Cash_Bank"
+    note_no: "4"
+    cash_flow_class: "Cash"
+    dbd_line_item: "เงินสดและรายการเทียบเท่าเงินสด"
+    tfac_ref: "TFRS for NPAEs บทที่ 6 / TAS 7"
+    keywords: ["เงินสด", "เงินฝากธนาคาร", "กระแสรายวัน", "ออมทรัพย์", "cash", "bank", "petty cash", "cash equivalent"]
+    code_prefixes: ["110", "111", "101"]
+    disclosure_lines:
+      - "เงินสดในมือ"
+      - "เงินฝากธนาคาร - กระแสรายวันและออมทรัพย์"
+      - "เงินฝากประจำที่ครบกำหนดไม่เกิน 3 เดือน"
+
+  - account_type: "Asset"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "สินทรัพย์หมุนเวียน"
+    sub_grouping: "ลูกหนี้การค้าและลูกหนี้อื่น"
+    fs_line_item: "ลูกหนี้การค้าและลูกหนี้อื่น"
+    fs_line_item_en: "Trade and other current receivables"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_AR_Trade_Other"
+    note_no: "5"
+    cash_flow_class: "Operating - Working Capital"
+    dbd_line_item: "ลูกหนี้การค้าและลูกหนี้อื่น"
+    tfac_ref: "TFRS for NPAEs บทที่ 7 / TFRS 9"
+    keywords: ["ลูกหนี้การค้า", "ลูกหนี้อื่น", "ตั๋วเงินรับ", "รายได้ค้างรับ", "ค่าใช้จ่ายจ่ายล่วงหน้า", "accounts receivable", "trade receivable", "other receivable", "prepaid"]
+    code_prefixes: ["112", "113", "114"]
+    disclosure_lines:
+      - "ลูกหนี้การค้า - กิจการที่ไม่เกี่ยวข้องกัน"
+      - "ลูกหนี้การค้า - กิจการที่เกี่ยวข้องกัน"
+      - "ลูกหนี้อื่นและค่าใช้จ่ายจ่ายล่วงหน้า"
+
+  - account_type: "Contra"
+    fs_sign: 1
+    normal_balance: "Credit"
+    grouping: "สินทรัพย์หมุนเวียน"
+    sub_grouping: "ลูกหนี้การค้าและลูกหนี้อื่น"
+    fs_line_item: "ลูกหนี้การค้าและลูกหนี้อื่น"
+    fs_line_item_en: "Trade and other current receivables"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_AR_Trade_Other"
+    note_no: "5"
+    cash_flow_class: "Operating - Non-cash"
+    dbd_line_item: "ลูกหนี้การค้าและลูกหนี้อื่น"
+    tfac_ref: "TFRS for NPAEs บทที่ 7 / TFRS 9"
+    keywords: ["ค่าเผื่อหนี้สงสัยจะสูญ", "ค่าเผื่อผลขาดทุนด้านเครดิต", "allowance for doubtful", "expected credit loss"]
+    code_prefixes: ["1129", "1139"]
+    disclosure_lines:
+      - "หัก ค่าเผื่อผลขาดทุนด้านเครดิตที่คาดว่าจะเกิดขึ้น/หนี้สงสัยจะสูญ"
+
+  - account_type: "Asset"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "สินทรัพย์หมุนเวียน"
+    sub_grouping: "สินค้าคงเหลือ"
+    fs_line_item: "สินค้าคงเหลือ"
+    fs_line_item_en: "Inventories"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Inventory"
+    note_no: "6"
+    cash_flow_class: "Operating - Working Capital"
+    dbd_line_item: "สินค้าคงเหลือ"
+    tfac_ref: "TFRS for NPAEs บทที่ 8 / TAS 2"
+    keywords: ["สินค้าคงเหลือ", "วัตถุดิบ", "งานระหว่างทำ", "สินค้าสำเร็จรูป", "วัสดุสิ้นเปลือง", "inventory", "inventories", "raw material", "finished goods"]
+    code_prefixes: ["115", "116"]
+    disclosure_lines:
+      - "สินค้าสำเร็จรูป"
+      - "งานระหว่างทำ"
+      - "วัตถุดิบและวัสดุสิ้นเปลือง"
+
+  - account_type: "Contra"
+    fs_sign: 1
+    normal_balance: "Credit"
+    grouping: "สินทรัพย์หมุนเวียน"
+    sub_grouping: "สินค้าคงเหลือ"
+    fs_line_item: "สินค้าคงเหลือ"
+    fs_line_item_en: "Inventories"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Inventory"
+    note_no: "6"
+    cash_flow_class: "Operating - Non-cash"
+    dbd_line_item: "สินค้าคงเหลือ"
+    tfac_ref: "TFRS for NPAEs บทที่ 8 / TAS 2"
+    keywords: ["ค่าเผื่อการลดมูลค่าสินค้า", "ค่าเผื่อสินค้าล้าสมัย", "allowance for obsolete", "inventory write-down"]
+    code_prefixes: ["1159"]
+    disclosure_lines:
+      - "หัก ค่าเผื่อการลดลงของมูลค่าสินค้าคงเหลือ"
+
+  - account_type: "Asset"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "สินทรัพย์หมุนเวียน"
+    sub_grouping: "สินทรัพย์หมุนเวียนอื่น"
+    fs_line_item: "สินทรัพย์หมุนเวียนอื่น"
+    fs_line_item_en: "Other current assets"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Other_Current_Assets"
+    note_no: "5"
+    cash_flow_class: "Operating - Working Capital"
+    dbd_line_item: "สินทรัพย์หมุนเวียนอื่น"
+    tfac_ref: "TFRS for NPAEs บทที่ 4 / TAS 1"
+    keywords: ["ภาษีซื้อ", "ภาษีมูลค่าเพิ่มรอขอคืน", "ภาษีเงินได้ถูกหัก ณ ที่จ่าย", "เงินมัดจำระยะสั้น", "สินทรัพย์หมุนเวียนอื่น", "input vat", "withholding tax receivable", "other current asset"]
+    code_prefixes: ["117", "118", "119"]
+    disclosure_lines:
+      - "ภาษีซื้อยังไม่ถึงกำหนดและภาษีมูลค่าเพิ่มรอขอคืน"
+      - "ภาษีเงินได้หัก ณ ที่จ่ายรอขอคืน"
+      - "สินทรัพย์หมุนเวียนอื่น"
+
+  - account_type: "Asset"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "สินทรัพย์ไม่หมุนเวียน"
+    sub_grouping: "เงินลงทุนระยะยาว"
+    fs_line_item: "เงินลงทุนในบริษัทย่อย บริษัทร่วม และเงินลงทุนระยะยาว"
+    fs_line_item_en: "Investments in subsidiaries, associates and long-term investments"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Investments"
+    note_no: "7"
+    cash_flow_class: "Investing"
+    dbd_line_item: "เงินลงทุนระยะยาว"
+    tfac_ref: "TFRS for NPAEs บทที่ 9 / TAS 27 / TAS 28 / TFRS 9"
+    keywords: ["เงินลงทุน", "บริษัทย่อย", "บริษัทร่วม", "พันธบัตร", "investment", "subsidiary", "associate"]
+    code_prefixes: ["120", "121"]
+    disclosure_lines:
+      - "เงินลงทุนในบริษัทย่อยและบริษัทร่วม"
+      - "เงินลงทุนระยะยาวอื่น"
+
+  - account_type: "Asset"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "สินทรัพย์ไม่หมุนเวียน"
+    sub_grouping: "ที่ดิน อาคารและอุปกรณ์"
+    fs_line_item: "ที่ดิน อาคารและอุปกรณ์"
+    fs_line_item_en: "Property, plant and equipment"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_PPE"
+    note_no: "8"
+    cash_flow_class: "Investing"
+    dbd_line_item: "ที่ดิน อาคารและอุปกรณ์"
+    tfac_ref: "TFRS for NPAEs บทที่ 10 / TAS 16"
+    keywords: ["ที่ดิน", "อาคาร", "สิ่งปลูกสร้าง", "เครื่องจักร", "อุปกรณ์", "เครื่องตกแต่ง", "ยานพาหนะ", "สิทธิการใช้", "land", "building", "machinery", "equipment", "vehicle", "ppe", "right-of-use"]
+    code_prefixes: ["122", "123", "124", "125"]
+    disclosure_lines:
+      - "ที่ดิน"
+      - "อาคารและส่วนปรับปรุงอาคาร"
+      - "เครื่องจักรและอุปกรณ์"
+      - "เครื่องตกแต่งและอุปกรณ์สำนักงาน"
+      - "ยานพาหนะ"
+
+  - account_type: "Contra"
+    fs_sign: 1
+    normal_balance: "Credit"
+    grouping: "สินทรัพย์ไม่หมุนเวียน"
+    sub_grouping: "ที่ดิน อาคารและอุปกรณ์"
+    fs_line_item: "ที่ดิน อาคารและอุปกรณ์"
+    fs_line_item_en: "Property, plant and equipment"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_PPE"
+    note_no: "8"
+    cash_flow_class: "Operating - Non-cash"
+    dbd_line_item: "ที่ดิน อาคารและอุปกรณ์"
+    tfac_ref: "TFRS for NPAEs บทที่ 10 / TAS 16"
+    keywords: ["ค่าเสื่อมราคาสะสม", "accumulated depreciation"]
+    code_prefixes: ["1229", "1239", "1249", "1259"]
+    disclosure_lines:
+      - "หัก ค่าเสื่อมราคาสะสม"
+
+  - account_type: "Asset"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "สินทรัพย์ไม่หมุนเวียน"
+    sub_grouping: "สินทรัพย์ไม่มีตัวตน"
+    fs_line_item: "สินทรัพย์ไม่มีตัวตน"
+    fs_line_item_en: "Intangible assets"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Intangible_Assets"
+    note_no: "9"
+    cash_flow_class: "Investing"
+    dbd_line_item: "สินทรัพย์ไม่มีตัวตน"
+    tfac_ref: "TFRS for NPAEs บทที่ 11 / TAS 38"
+    keywords: ["โปรแกรมคอมพิวเตอร์", "ซอฟต์แวร์", "สิทธิบัตร", "เครื่องหมายการค้า", "สินทรัพย์ไม่มีตัวตน", "ค่าตัดจำหน่ายสะสม", "software", "intangible", "amortization"]
+    code_prefixes: ["126", "127", "128", "129"]
+    disclosure_lines:
+      - "โปรแกรมคอมพิวเตอร์"
+      - "หัก ค่าตัดจำหน่ายสะสม"
+
+  - account_type: "Liability"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "หนี้สินหมุนเวียน"
+    sub_grouping: "เจ้าหนี้การค้าและเจ้าหนี้อื่น"
+    fs_line_item: "เจ้าหนี้การค้าและเจ้าหนี้อื่น"
+    fs_line_item_en: "Trade and other current payables"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_AP_Trade_Other"
+    note_no: "11"
+    cash_flow_class: "Operating - Working Capital"
+    dbd_line_item: "เจ้าหนี้การค้าและเจ้าหนี้อื่น"
+    tfac_ref: "TFRS for NPAEs บทที่ 13 / TAS 1"
+    keywords: ["เจ้าหนี้การค้า", "เจ้าหนี้อื่น", "ตั๋วเงินจ่าย", "เงินมัดจำรับ", "รายได้รับล่วงหน้า", "accounts payable", "trade payable", "other payable", "unearned revenue"]
+    code_prefixes: ["211", "212", "213"]
+    disclosure_lines:
+      - "เจ้าหนี้การค้า - กิจการที่ไม่เกี่ยวข้องกัน"
+      - "เจ้าหนี้การค้า - กิจการที่เกี่ยวข้องกัน"
+      - "เจ้าหนี้อื่นและรายได้รับล่วงหน้า"
+
+  - account_type: "Liability"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "หนี้สินหมุนเวียน"
+    sub_grouping: "ค่าใช้จ่ายค้างจ่าย"
+    fs_line_item: "ค่าใช้จ่ายค้างจ่าย"
+    fs_line_item_en: "Accrued expenses"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Accrued_Expenses"
+    note_no: "11"
+    cash_flow_class: "Operating - Working Capital"
+    dbd_line_item: "เจ้าหนี้การค้าและเจ้าหนี้อื่น"
+    tfac_ref: "TFRS for NPAEs บทที่ 13 / TAS 37"
+    keywords: ["ค่าใช้จ่ายค้างจ่าย", "โบนัสค้างจ่าย", "ดอกเบี้ยค้างจ่าย", "ค้างจ่าย", "accrued"]
+    code_prefixes: ["214"]
+    disclosure_lines:
+      - "ค่าใช้จ่ายค้างจ่าย"
+
+  - account_type: "Liability"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "หนี้สินหมุนเวียน"
+    sub_grouping: "ภาษีเงินได้ค้างจ่ายและภาษีหัก ณ ที่จ่าย"
+    fs_line_item: "ภาษีเงินได้ค้างจ่ายและภาษีอื่น"
+    fs_line_item_en: "Income tax payable and other taxes"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Tax_Payable"
+    note_no: "13"
+    cash_flow_class: "Operating - Tax"
+    dbd_line_item: "ภาษีเงินได้ค้างจ่าย"
+    tfac_ref: "TFRS for NPAEs บทที่ 16 / TAS 12"
+    keywords: ["ภาษีเงินได้ค้างจ่าย", "ภาษีขาย", "ภาษีหัก ณ ที่จ่ายค้างนำส่ง", "ภงด", "ประกันสังคมค้างจ่าย", "tax payable", "output vat", "wht payable"]
+    code_prefixes: ["215", "216"]
+    disclosure_lines:
+      - "ภาษีเงินได้นิติบุคคลค้างจ่าย"
+      - "ภาษีขายและภาษีหัก ณ ที่จ่ายค้างนำส่ง"
+
+  - account_type: "Liability"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "หนี้สินหมุนเวียน"
+    sub_grouping: "เงินกู้ยืมระยะสั้นและส่วนที่ถึงกำหนดภายในหนึ่งปี"
+    fs_line_item: "เงินเบิกเกินบัญชีและเงินกู้ยืมระยะสั้น"
+    fs_line_item_en: "Bank overdrafts and short-term borrowings"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Borrowings"
+    note_no: "12"
+    cash_flow_class: "Financing"
+    dbd_line_item: "เงินเบิกเกินบัญชีและเงินกู้ยืมระยะสั้นจากสถาบันการเงิน"
+    tfac_ref: "TFRS for NPAEs บทที่ 13 / TFRS 9"
+    keywords: ["เบิกเกินบัญชี", "เงินกู้ยืมระยะสั้น", "ตั๋วสัญญาใช้เงิน", "ส่วนของเงินกู้ระยะยาวที่ถึงกำหนด", "overdraft", "short-term loan", "current portion"]
+    code_prefixes: ["210", "217"]
+    disclosure_lines:
+      - "เงินเบิกเกินบัญชีธนาคาร"
+      - "เงินกู้ยืมระยะสั้น"
+      - "ส่วนของเงินกู้ยืมระยะยาวที่ถึงกำหนดชำระภายในหนึ่งปี"
+
+  - account_type: "Liability"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "หนี้สินไม่หมุนเวียน"
+    sub_grouping: "เงินกู้ยืมระยะยาว"
+    fs_line_item: "เงินกู้ยืมระยะยาว"
+    fs_line_item_en: "Long-term borrowings"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Borrowings"
+    note_no: "12"
+    cash_flow_class: "Financing"
+    dbd_line_item: "เงินกู้ยืมระยะยาว"
+    tfac_ref: "TFRS for NPAEs บทที่ 13 / TFRS 9"
+    keywords: ["เงินกู้ยืมระยะยาว", "เงินกู้กรรมการ", "long-term loan", "borrowing"]
+    code_prefixes: ["220", "221"]
+    disclosure_lines:
+      - "เงินกู้ยืมระยะยาวจากสถาบันการเงิน"
+      - "เงินกู้ยืมจากบุคคลหรือกิจการที่เกี่ยวข้องกัน"
+
+  - account_type: "Liability"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "หนี้สินไม่หมุนเวียน"
+    sub_grouping: "หนี้สินตามสัญญาเช่า"
+    fs_line_item: "หนี้สินตามสัญญาเช่า"
+    fs_line_item_en: "Lease liabilities"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Lease_Liabilities"
+    note_no: "10"
+    cash_flow_class: "Financing"
+    dbd_line_item: "หนี้สินตามสัญญาเช่า"
+    tfac_ref: "TFRS for NPAEs บทที่ 14 / TFRS 16"
+    keywords: ["หนี้สินตามสัญญาเช่า", "เช่าซื้อ", "lease liability", "hire purchase"]
+    code_prefixes: ["222"]
+    disclosure_lines:
+      - "หนี้สินตามสัญญาเช่า - ส่วนที่ถึงกำหนดเกินกว่าหนึ่งปี"
+
+  - account_type: "Liability"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "หนี้สินไม่หมุนเวียน"
+    sub_grouping: "ประมาณการหนี้สินผลประโยชน์พนักงาน"
+    fs_line_item: "ประมาณการหนี้สินไม่หมุนเวียนสำหรับผลประโยชน์พนักงาน"
+    fs_line_item_en: "Non-current provisions for employee benefits"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Employee_Benefits"
+    note_no: "14"
+    cash_flow_class: "Operating - Non-cash"
+    dbd_line_item: "ประมาณการหนี้สินไม่หมุนเวียนสำหรับผลประโยชน์พนักงาน"
+    tfac_ref: "TFRS for NPAEs บทที่ 15 / TAS 19"
+    keywords: ["ผลประโยชน์พนักงาน", "สำรองบำเหน็จ", "employee benefit", "retirement"]
+    code_prefixes: ["223"]
+    disclosure_lines:
+      - "ประมาณการหนี้สินผลประโยชน์พนักงานเมื่อออกจากงาน"
+
+  - account_type: "Liability"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "หนี้สินไม่หมุนเวียน"
+    sub_grouping: "ประมาณการหนี้สินอื่น"
+    fs_line_item: "ประมาณการหนี้สินอื่น"
+    fs_line_item_en: "Other provisions"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Provisions"
+    note_no: "15"
+    cash_flow_class: "Operating - Non-cash"
+    dbd_line_item: "ประมาณการหนี้สินอื่น"
+    tfac_ref: "TFRS for NPAEs บทที่ 15 / TAS 37"
+    keywords: ["ประมาณการหนี้สิน", "รับประกันสินค้า", "provision", "warranty"]
+    code_prefixes: ["224", "225"]
+    disclosure_lines:
+      - "ประมาณการหนี้สินอื่น"
+
+  - account_type: "Equity"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "ส่วนของเจ้าของ"
+    sub_grouping: "ทุนเรือนหุ้น"
+    fs_line_item: "ทุนที่ออกและชำระแล้ว"
+    fs_line_item_en: "Issued and paid-up share capital"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Share_Capital"
+    note_no: "16"
+    cash_flow_class: "Financing"
+    dbd_line_item: "ทุนที่ออกและชำระแล้ว"
+    tfac_ref: "TFRS for NPAEs บทที่ 17 / TAS 1"
+    keywords: ["ทุนจดทะเบียน", "ทุนเรือนหุ้น", "ทุนที่ออกและชำระแล้ว", "ส่วนเกินมูลค่าหุ้น", "share capital", "paid-up", "share premium"]
+    code_prefixes: ["310", "311"]
+    disclosure_lines:
+      - "ทุนจดทะเบียน"
+      - "ทุนที่ออกและชำระแล้ว"
+
+  - account_type: "Equity"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "ส่วนของเจ้าของ"
+    sub_grouping: "กำไรสะสม"
+    fs_line_item: "กำไรสะสม"
+    fs_line_item_en: "Retained earnings"
+    statement: "FS_Balance_Sheet"
+    detail_sheet: "D_Retained_Earnings"
+    note_no: "16"
+    cash_flow_class: "Financing"
+    dbd_line_item: "กำไรสะสม"
+    tfac_ref: "TFRS for NPAEs บทที่ 17 / TAS 1"
+    keywords: ["กำไรสะสม", "ขาดทุนสะสม", "สำรองตามกฎหมาย", "เงินปันผล", "retained earnings", "legal reserve", "dividend"]
+    code_prefixes: ["320", "321", "330"]
+    disclosure_lines:
+      - "สำรองตามกฎหมาย"
+      - "กำไรสะสมที่ยังไม่ได้จัดสรร"
+
+  - account_type: "Revenue"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "รายได้จากการขายหรือการให้บริการ"
+    sub_grouping: "รายได้จากการขายและบริการ"
+    fs_line_item: "รายได้จากการขายหรือการให้บริการ"
+    fs_line_item_en: "Revenue from sales or rendering of services"
+    statement: "FS_Income_Statement"
+    detail_sheet: "D_Revenue"
+    note_no: "17"
+    cash_flow_class: "Operating - Profit"
+    dbd_line_item: "รายได้จากการขายหรือการให้บริการ"
+    tfac_ref: "TFRS for NPAEs บทที่ 18 / TFRS 15"
+    keywords: ["รายได้จากการขาย", "รายได้ค่าบริการ", "ขายสินค้า", "รับจ้าง", "sales", "service revenue", "revenue"]
+    code_prefixes: ["410", "411", "401"]
+    disclosure_lines:
+      - "รายได้จากการขายสินค้า"
+      - "รายได้จากการให้บริการ"
+      - "หัก ส่วนลดจ่ายและรับคืนสินค้า"
+
+  - account_type: "Revenue"
+    fs_sign: -1
+    normal_balance: "Credit"
+    grouping: "รายได้อื่น"
+    sub_grouping: "รายได้อื่น"
+    fs_line_item: "รายได้อื่น"
+    fs_line_item_en: "Other income"
+    statement: "FS_Income_Statement"
+    detail_sheet: "D_Other_Income_Expense"
+    note_no: "17"
+    cash_flow_class: "Operating - Profit"
+    dbd_line_item: "รายได้อื่น"
+    tfac_ref: "TFRS for NPAEs บทที่ 18 / TAS 1"
+    keywords: ["รายได้อื่น", "ดอกเบี้ยรับ", "กำไรจากอัตราแลกเปลี่ยน", "กำไรจากการขายสินทรัพย์", "other income", "interest income", "fx gain"]
+    code_prefixes: ["420", "421", "49"]
+    disclosure_lines:
+      - "ดอกเบี้ยรับ"
+      - "รายได้เบ็ดเตล็ดและรายได้อื่น"
+
+  - account_type: "Expense"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "ต้นทุนขายหรือต้นทุนการให้บริการ"
+    sub_grouping: "ต้นทุนขายและต้นทุนบริการ"
+    fs_line_item: "ต้นทุนขายหรือต้นทุนการให้บริการ"
+    fs_line_item_en: "Cost of sales or cost of services"
+    statement: "FS_Income_Statement"
+    detail_sheet: "D_Cost_of_Sales_or_Service"
+    note_no: "17"
+    cash_flow_class: "Operating - Profit"
+    dbd_line_item: "ต้นทุนขายหรือต้นทุนการให้บริการ"
+    tfac_ref: "TFRS for NPAEs บทที่ 8, 18 / TAS 2"
+    keywords: ["ต้นทุนขาย", "ต้นทุนบริการ", "ซื้อสินค้า", "วัตถุดิบใช้ไป", "ค่าแรงทางตรง", "cost of sales", "cost of goods sold", "cost of service", "cogs"]
+    code_prefixes: ["510", "511", "501"]
+    disclosure_lines:
+      - "ต้นทุนขายสินค้า"
+      - "ต้นทุนการให้บริการ"
+
+  - account_type: "Expense"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "ค่าใช้จ่ายในการขาย"
+    sub_grouping: "ค่าใช้จ่ายในการขายและจัดจำหน่าย"
+    fs_line_item: "ค่าใช้จ่ายในการขาย"
+    fs_line_item_en: "Selling expenses"
+    statement: "FS_Income_Statement"
+    detail_sheet: "D_Selling_Expenses"
+    note_no: "17"
+    cash_flow_class: "Operating - Profit"
+    dbd_line_item: "ค่าใช้จ่ายในการขาย"
+    tfac_ref: "TFRS for NPAEs บทที่ 4 / TAS 1"
+    keywords: ["ค่าใช้จ่ายในการขาย", "ค่าโฆษณา", "ค่านายหน้า", "ค่าขนส่งออก", "ส่งเสริมการขาย", "selling", "marketing", "commission", "advertising"]
+    code_prefixes: ["520", "521"]
+    disclosure_lines:
+      - "ค่าใช้จ่ายพนักงานฝ่ายขายและค่านายหน้า"
+      - "ค่าโฆษณาและส่งเสริมการขาย"
+
+  - account_type: "Expense"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "ค่าใช้จ่ายในการบริหาร"
+    sub_grouping: "ค่าใช้จ่ายในการบริหาร"
+    fs_line_item: "ค่าใช้จ่ายในการบริหาร"
+    fs_line_item_en: "Administrative expenses"
+    statement: "FS_Income_Statement"
+    detail_sheet: "D_Administrative_Expenses"
+    note_no: "17"
+    cash_flow_class: "Operating - Profit"
+    dbd_line_item: "ค่าใช้จ่ายในการบริหาร"
+    tfac_ref: "TFRS for NPAEs บทที่ 4 / TAS 1"
+    keywords: ["เงินเดือน", "ค่าเช่า", "ค่าเสื่อมราคา", "ค่าไฟฟ้า", "ค่าโทรศัพท์", "ค่าสอบบัญชี", "ค่าที่ปรึกษา", "ค่ารับรอง", "ค่าใช้จ่ายในการบริหาร", "salary", "rent", "depreciation", "audit fee", "admin", "office"]
+    code_prefixes: ["530", "531", "532", "533"]
+    disclosure_lines:
+      - "เงินเดือน ค่าจ้าง และผลประโยชน์พนักงาน"
+      - "ค่าเสื่อมราคาและค่าตัดจำหน่าย"
+      - "ค่าเช่า ค่าสาธารณูปโภค และค่าบริการวิชาชีพ"
+
+  - account_type: "Expense"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "ค่าใช้จ่ายทางการเงิน"
+    sub_grouping: "ต้นทุนทางการเงิน"
+    fs_line_item: "ต้นทุนทางการเงิน"
+    fs_line_item_en: "Finance costs"
+    statement: "FS_Income_Statement"
+    detail_sheet: "D_Finance_Cost"
+    note_no: "12"
+    cash_flow_class: "Operating - Finance Cost"
+    dbd_line_item: "ต้นทุนทางการเงิน"
+    tfac_ref: "TFRS for NPAEs บทที่ 4 / TAS 23"
+    keywords: ["ดอกเบี้ยจ่าย", "ค่าธรรมเนียมเงินกู้", "ต้นทุนทางการเงิน", "interest expense", "finance cost"]
+    code_prefixes: ["540", "541"]
+    disclosure_lines:
+      - "ดอกเบี้ยจ่ายเงินกู้ยืมและหนี้สินตามสัญญาเช่า"
+
+  - account_type: "Expense"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "ภาษีเงินได้"
+    sub_grouping: "ค่าใช้จ่ายภาษีเงินได้"
+    fs_line_item: "ค่าใช้จ่ายภาษีเงินได้"
+    fs_line_item_en: "Income tax expense"
+    statement: "FS_Income_Statement"
+    detail_sheet: "D_Income_Tax"
+    note_no: "13"
+    cash_flow_class: "Operating - Tax"
+    dbd_line_item: "ค่าใช้จ่ายภาษีเงินได้"
+    tfac_ref: "TFRS for NPAEs บทที่ 16 / TAS 12"
+    keywords: ["ภาษีเงินได้นิติบุคคล", "ค่าใช้จ่ายภาษีเงินได้", "income tax expense", "corporate income tax"]
+    code_prefixes: ["550", "590"]
+    disclosure_lines:
+      - "ภาษีเงินได้สำหรับงวดปัจจุบัน"
+
+  - account_type: "Expense"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "รายการพิเศษหรือรายการที่ต้องสอบทาน"
+    sub_grouping: "รายการที่ต้องสอบทาน"
+    fs_line_item: "ค่าใช้จ่ายอื่น / รายการรอตรวจสอบ"
+    fs_line_item_en: "Other expenses / Items under review"
+    statement: "FS_Income_Statement"
+    detail_sheet: "D_Other_Income_Expense"
+    note_no: "17"
+    cash_flow_class: "Operating - Profit"
+    dbd_line_item: "ค่าใช้จ่ายอื่น"
+    tfac_ref: "ต้องสอบทานการจัดประเภท"
+    keywords: ["ขาดทุนจากอัตราแลกเปลี่ยน", "ค่าปรับ", "หนี้สูญ", "fx loss", "penalty", "bad debt"]
+    code_prefixes: ["580"]
+    disclosure_lines:
+      - "รายการค่าใช้จ่ายอื่นที่ต้องสอบทาน"
+
+  - account_type: "Memo"
+    fs_sign: 1
+    normal_balance: "Debit"
+    grouping: "บัญชีพัก บัญชีเบ็ดเตล็ด และบัญชีที่จัดประเภทไม่ได้"
+    sub_grouping: "บัญชีพัก/รอตรวจสอบ"
+    fs_line_item: "บัญชีพักและรายการจัดประเภทไม่ได้ (ห้ามออกงบ Final)"
+    fs_line_item_en: "Suspense and unclassified accounts"
+    statement: "Unmapped_Accounts"
+    detail_sheet: "D_Other_Current_Assets"
+    note_no: "N/A"
+    cash_flow_class: "Unclassified"
+    dbd_line_item: "ต้องจัดประเภทใหม่ก่อนนำส่ง DBD"
+    tfac_ref: "ต้องเคลียร์บัญชีพักก่อนปิดงบ"
+    keywords: ["บัญชีพัก", "เบ็ดเตล็ด", "รอตรวจสอบ", "suspense", "clearing", "unclassified", "misc"]
+    code_prefixes: ["999", "199", "299"]
+    disclosure_lines:
+      - "บัญชีพักรอตรวจสอบ"

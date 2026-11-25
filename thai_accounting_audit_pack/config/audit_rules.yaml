@@ -1,0 +1,97 @@
+version: "2026.1"
+risk_weights:
+  materiality_ratio: 25
+  period_fluctuation: 15
+  management_override_or_manual: 15
+  year_end_cutoff: 15
+  related_party: 10
+  accounting_complexity_or_estimate: 10
+  evidence_gap_or_suspense: 10
+
+thresholds:
+  low_max: 29
+  medium_max: 54
+  high_max: 79
+  critical_min: 80
+
+assertions:
+  - "Existence"
+  - "Completeness"
+  - "Accuracy"
+  - "Cut-off"
+  - "Classification"
+  - "Valuation"
+  - "Rights and Obligations"
+  - "Presentation and Disclosure"
+
+audit_cycles:
+  - cycle: "เงินสดและธนาคาร (Cash and Bank)"
+    fs_area: "สินทรัพย์หมุนเวียน"
+    assertions: ["Existence", "Rights and Obligations", "Valuation"]
+    procedure: "Suggested Audit Procedure: ส่งหนังสือยืนยันยอดธนาคาร (Bank Confirmation), ทดสอบงบกระทบยอดเงินฝากธนาคาร (Bank Reconciliation), ตรวจสอบเช็คค้างจ่ายและเงินฝากระหว่างทางหลังวันสิ้นงวด"
+    evidence: "Bank Statement ณ วันสิ้นงวด และเดือนถัดไป, Bank Reconciliation, Bank Confirmation"
+  - cycle: "ลูกหนี้การค้าและลูกหนี้อื่น (Trade & Other Receivables)"
+    fs_area: "สินทรัพย์หมุนเวียน"
+    assertions: ["Existence", "Valuation", "Cut-off"]
+    procedure: "Suggested Audit Procedure: สอบทาน AR Aging, ส่งหนังสือยืนยันยอดลูกหนี้ (AR Confirmation), ทดสอบการรับชำระเงินหลังวันสิ้นงวด (Subsequent Receipts), ประเมินความเพียงพอของค่าเผื่อหนี้สงสัยจะสูญ"
+    evidence: "AR Aging Schedule, สำเนาใบแจ้งหนี้/ใบส่งของ, หลักฐานรับเงินหลังวันสิ้นงวด"
+  - cycle: "สินค้าคงเหลือ (Inventories)"
+    fs_area: "สินทรัพย์หมุนเวียน"
+    assertions: ["Existence", "Valuation", "Cut-off"]
+    procedure: "Suggested Audit Procedure: เข้าร่วมสังเกตการณ์ตรวจนับสินค้าคงเหลือ (Physical Stock Count), ทดสอบการตีราคาสินค้าและ NRV, ตรวจสอบสินค้าเสื่อมสภาพ/เคลื่อนไหวช้า และ Cut-off รับ-จ่ายสินค้า"
+    evidence: "Stock Count Sheet, รายงานเคลื่อนไหวสินค้า, เอกสารรับ-ส่งสินค้าช่วงสิ้นงวด"
+  - cycle: "ที่ดิน อาคารและอุปกรณ์ (PPE)"
+    fs_area: "สินทรัพย์ไม่หมุนเวียน"
+    assertions: ["Existence", "Rights and Obligations", "Accuracy", "Valuation"]
+    procedure: "Suggested Audit Procedure: ตรวจสอบใบกำกับภาษี/สัญญาซื้อสินทรัพย์เพิ่ม, ตรวจนับทางกายภาพ, สอบทานรายการจำหน่ายสินทรัพย์, คำนวณทดสอบค่าเสื่อมราคา"
+    evidence: "ทะเบียนทรัพย์สิน (Fixed Asset Register), ใบกำกับภาษีซื้อสินทรัพย์, โฉนด/ทะเบียนรถ"
+  - cycle: "เจ้าหนี้และค่าใช้จ่ายค้างจ่าย (Payables & Accruals)"
+    fs_area: "หนี้สินหมุนเวียน"
+    assertions: ["Completeness", "Accuracy", "Cut-off"]
+    procedure: "Suggested Audit Procedure: ทดสอบการจ่ายชำระหลังวันสิ้นงวดเพื่อค้นหาหนี้สินที่ไม่ได้บันทึก (Search for Unrecorded Liabilities), ตรวจเอกสารตั้งค้างจ่ายและใบแจ้งหนี้ผู้ขาย"
+    evidence: "AP Aging, ใบแจ้งหนี้หลังวันสิ้นงวด, หลักฐานจ่ายเงินเดือนมกราคม/เดือนถัดไป"
+  - cycle: "เงินกู้ยืมและสัญญาเช่า (Borrowings & Leases)"
+    fs_area: "หนี้สินหมุนเวียนและไม่หมุนเวียน"
+    assertions: ["Completeness", "Classification", "Presentation and Disclosure"]
+    procedure: "Suggested Audit Procedure: ส่งหนังสือยืนยันยอดเงินกู้ (Loan Confirmation), สอบทานการปฏิบัติตาม Financial Covenants, ทดสอบการแยกส่วนที่ถึงกำหนดภายใน 1 ปี และหนี้สินไม่หมุนเวียน"
+    evidence: "สัญญาเงินกู้, สัญญาเช่า, Loan Confirmation, ตารางผ่อนชำระ"
+  - cycle: "รายได้ (Revenue)"
+    fs_area: "งบกำไรขาดทุน"
+    assertions: ["Existence", "Cut-off", "Accuracy", "Classification"]
+    procedure: "Suggested Audit Procedure: ทดสอบ Cut-off การขาย/ให้บริการก่อนและหลังวันสิ้นงวด 15 วัน, ตรวจใบแจ้งหนี้เทียบหลักฐานส่งมอบ/ตรวจรับงาน, สอบทาน Credit Note และรายการ Manual Journal ในบัญชีรายได้"
+    evidence: "ใบกำกับภาษีขาย, ใบส่งของ/ใบตรวจรับงาน, ใบลดหนี้, สัญญาลูกค้า"
+  - cycle: "ค่าใช้จ่าย (Expenses)"
+    fs_area: "งบกำไรขาดทุน"
+    assertions: ["Existence", "Accuracy", "Classification", "Completeness"]
+    procedure: "Suggested Audit Procedure: สุ่มตรวจใบสำคัญจ่าย (Vouching) เทียบใบกำกับภาษีและการอนุมัติ, ตรวจสอบวัตถุประสงค์ทางธุรกิจ, ตรวจรายการซ้ำซ้อนและรายการที่ควรบันทึกเป็นสินทรัพย์ (Capitalization)"
+    evidence: "ใบสำคัญจ่าย, ใบกำกับภาษี, ใบสั่งซื้อ/อนุมัติจ่าย"
+  - cycle: "เงินเดือนและค่าตอบแทนพนักงาน (Payroll)"
+    fs_area: "ค่าใช้จ่ายและหนี้สิน"
+    assertions: ["Accuracy", "Completeness", "Classification"]
+    procedure: "Suggested Audit Procedure: กระทบยอดทะเบียนเงินเดือน (Payroll Register) กับ ภ.ง.ด.1 และประกันสังคม, ทดสอบการจ่ายโบนัสและประมาณการผลประโยชน์พนักงาน"
+    evidence: "Payroll Register, แบบ ภ.ง.ด.1 / ภ.ง.ด.1ก, แบบ สปส.1-10"
+  - cycle: "บุคคลหรือกิจการที่เกี่ยวข้องกัน (Related Parties)"
+    fs_area: "เปิดเผยข้อมูลและรายการระหว่างกัน"
+    assertions: ["Completeness", "Presentation and Disclosure", "Accuracy"]
+    procedure: "Suggested Audit Procedure: สอบทานรายชื่อกรรมการและผู้ถือหุ้น, ส่งยืนยันยอดรายการระหว่างกัน, ตรวจสอบเงื่อนไขและราคาตามหลัก Arm's Length"
+    evidence: "สำเนา บอจ.5, หนังสือรับรองบริษัท, สัญญาระหว่างกิจการที่เกี่ยวข้องกัน"
+  - cycle: "ส่วนของเจ้าของ (Equity)"
+    fs_area: "ส่วนของเจ้าของ"
+    assertions: ["Rights and Obligations", "Accuracy", "Presentation and Disclosure"]
+    procedure: "Suggested Audit Procedure: ตรวจสอบทะเบียนผู้ถือหุ้น (บอจ.5), รายงานการประชุมผู้ถือหุ้น, มติจ่ายเงินปันผล และการจัดสรรสำรองตามกฎหมาย"
+    evidence: "บอจ.5, หนังสือรับรอง, รายงานการประชุมผู้ถือหุ้น"
+  - cycle: "ภาษีอากร (Taxation)"
+    fs_area: "สินทรัพย์ หนี้สิน และค่าใช้จ่ายภาษี"
+    assertions: ["Completeness", "Accuracy", "Classification"]
+    procedure: "Suggested Audit Procedure: กระทบยอดรายได้ตาม ภ.พ.30 กับงบทดลอง, ทดสอบการนำส่งภาษีหัก ณ ที่จ่าย (ภ.ง.ด.3, 53), สอบทานการคำนวณภาษีเงินได้นิติบุคคล (ภ.ง.ด.50)"
+    evidence: "แบบ ภ.พ.30, ภ.ง.ด.3/53, กระดาษทำการคำนวณ ภ.ง.ด.50"
+  - cycle: "การดำเนินงานต่อเนื่อง (Going Concern)"
+    fs_area: "ภาพรวมงบการเงิน"
+    assertions: ["Presentation and Disclosure"]
+    procedure: "Suggested Audit Procedure: ประเมินกระแสเงินสดคาดการณ์ 12 เดือนข้างหน้า, ตรวจสอบอัตราส่วนสภาพคล่อง, แนวโน้มขาดทุน และวันครบกำหนดชำระหนี้"
+    evidence: "ประมาณการงบกระแสเงินสด, แผนธุรกิจ, หนังสือยืนยันการสนับสนุนทางการเงิน"
+  - cycle: "เหตุการณ์ภายหลังรอบระยะเวลารายงาน (Subsequent Events)"
+    fs_area: "ภาพรวมงบการเงิน"
+    assertions: ["Completeness", "Presentation and Disclosure"]
+    procedure: "Suggested Audit Procedure: สอบทานรายงานการประชุมกรรมการหลังวันสิ้นงวด, ตรวจรายการ GL หลังวันสิ้นงวด (ถ้ามี), สอบถามผู้บริหารเกี่ยวกับคดีความหรือภาระผูกพันใหม่"
+    evidence: "รายงานการประชุมหลังวันสิ้นงวด, หนังสือรับรองจากผู้บริหาร (Management Representation Letter)"
