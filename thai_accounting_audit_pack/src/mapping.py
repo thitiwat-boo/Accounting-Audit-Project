@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any
 import pandas as pd
 
-from src.config_loader import get_grouping_master
+from thai_accounting_audit_pack.src.config_loader import get_grouping_master
 
 
 RELATED_PARTY_KEYWORDS = [
