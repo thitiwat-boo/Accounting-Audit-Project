@@ -6,7 +6,7 @@ from typing import Any
 import pandas as pd
 import streamlit as st
 
-from src.models import ChangeLogEntry, EntitySetup, t
+from thai_accounting_audit_pack.src.models import ChangeLogEntry, EntitySetup, t
 
 
 def init_session_state() -> None:
